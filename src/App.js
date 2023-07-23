@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import useFetch from "./hooks/useFetch";
 
 import { useStateMethonds } from "./hooks/useStateMethods";
-import useFetch from "./hooks/useFetch";
+const Home = lazy(() => import("./components/pages/Home"));
 
 const App = () => {
   const { getApiConfiguration } = useStateMethonds();
@@ -20,7 +22,17 @@ const App = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  return <div>App</div>;
+  return (
+    <React.Fragment>
+      <BrowserRouter>
+        <Suspense>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+          </Routes>
+        </Suspense>
+      </BrowserRouter>
+    </React.Fragment>
+  );
 };
 
 export default App;
