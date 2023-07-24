@@ -11,6 +11,7 @@ import LoadImage from "./LoadImage";
 import PosterFallback from "../../../images/no-poster.png";
 
 import "../../../css/carousel.css";
+import CircleRating from "./CircleRating";
 
 const Carousel = ({ data, loading }) => {
   const carouselContainer = useRef();
@@ -34,7 +35,10 @@ const Carousel = ({ data, loading }) => {
       {data?.map((item) => {
         return (
           <div key={item.id} className="carouselItem">
-            <div className="posterBlock">{showImage(item.poster_path)}</div>
+            <div className="posterBlock">
+              {showImage(item.poster_path)}
+              <CircleRating rating={item.vote_average} />
+            </div>
             <div className="textBlock">
               <span className="title">{item.title || item.name}</span>
               <span className="date">
