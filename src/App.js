@@ -4,6 +4,7 @@ import useFetch from "./hooks/useFetch";
 
 import { useStateMethonds } from "./hooks/useStateMethods";
 import NavBar from "./components/pages/NavBar";
+import Footer from "./components/pages/Footer";
 const Home = lazy(() => import("./components/pages/Home"));
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
           </Routes>
         </Suspense>
+        <Footer />
       </BrowserRouter>
     </React.Fragment>
   );
