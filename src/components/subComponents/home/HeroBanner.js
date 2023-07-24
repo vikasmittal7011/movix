@@ -15,7 +15,9 @@ const HeroBanner = () => {
   const { data } = useFetch("/movie/upcoming");
 
   const searchQuery = () => {
-    navigate(`/navigate/${query}`);
+    if (query) {
+      navigate(`/navigate/${query}`);
+    }
   };
 
   const handleClick = (e) => {
@@ -23,7 +25,7 @@ const HeroBanner = () => {
   };
 
   const handleKeyUp = (e) => {
-    if (e.key === "Enter" && query) {
+    if (e.key === "Enter") {
       searchQuery();
     }
   };
@@ -41,14 +43,15 @@ const HeroBanner = () => {
   }, [data]);
 
   return (
-    <div className="">
+    <div className="hero-banner">
       <div className="back-drop-img">
         {getBackgroundImage && <LoadImage src={getBackgroundImage} />}
       </div>
+      <div className="opacity-layer"></div>
       <div className="hero-banner-content">
         <span className="title">Welcome.</span>
-        <span className="title">
-          Millons of movies & TV shows details are aviable.Explore Now
+        <span className="sub-title">
+          Millons of movies & TV shows details are aviable.Explore Now.
         </span>
         <div className="search-input">
           <input
