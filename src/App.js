@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import useFetch from "./hooks/useFetch";
 
 import { useStateMethonds } from "./hooks/useStateMethods";
+import NavBar from "./components/pages/NavBar";
 const Home = lazy(() => import("./components/pages/Home"));
 
 const App = () => {
@@ -25,7 +26,8 @@ const App = () => {
   return (
     <React.Fragment>
       <BrowserRouter>
-        <Suspense>
+        <NavBar />
+        <Suspense fallback={<p>Loading...</p>}>
           <Routes>
             <Route exact path="/" element={<Home />} />
           </Routes>
