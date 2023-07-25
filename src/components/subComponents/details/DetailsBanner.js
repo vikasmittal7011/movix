@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -9,6 +9,7 @@ import Genres from "../common/Genres";
 import CircleRating from "../common/CircleRating";
 import LoadImage from "../common/LoadImage";
 import PosterFallback from "../../../images/no-poster.png";
+import { PlayIcon } from "./PlayIcon";
 
 const DetailsBanner = ({ video, crew }) => {
   const { id, mediaType } = useParams();
@@ -36,6 +37,13 @@ const DetailsBanner = ({ video, crew }) => {
     }
   };
 
+  const showInfo = (title, value) => (
+    <div className="infoItem">
+      <span className="text bold">{title}: </span>
+      <span className="text">{value}</span>
+    </div>
+  );
+
   const showData = () => (
     <div>
       <div className="backdrop-img">
@@ -52,7 +60,23 @@ const DetailsBanner = ({ video, crew }) => {
             <div className="subtitle">{data?.tagline}</div>
             <Genres gen={_genres} />
             <div className="row">
-              <CircleRating rating={data?.vote_average} />
+              <div className="rating">
+                <CircleRating rating={data?.vote_average} />
+              </div>
+              <div className="playbtn">
+                <PlayIcon />
+                <span className="text">Watch Trailer</span>
+              </div>
+            </div>
+            <div className="overview">
+              <div className="heading">Overview</div>
+              <div className="description">{data?.overview}</div>
+            </div>
+            <div className="info">
+              {data?.status && showInfo("Status", data?.status)}
+              {data?.release_date &&
+                showInfo("Release Date", dayjs(data?.release_date).format("MMM D, YYYY"))}
+              {data?.runtime && showInfo("Duration", toHoursAndMinutes(data?.runtime))}
             </div>
           </div>
         </div>
