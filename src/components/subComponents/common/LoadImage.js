@@ -7,7 +7,6 @@ const LoadImage = ({ src, className, height }) => {
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
-    console.log(windowWidth);
   }, [windowWidth]);
 
   return (

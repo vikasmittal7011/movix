@@ -20,9 +20,19 @@ const Carousel = ({ data, loading }) => {
   const { url } = useSelector((state) => state.home);
   const { posterImageSize, imageUrl } = url;
 
-  console.log(url);
+  const navigation = (dir) => {
+    const container = carouselContainer.current;
 
-  const navigation = (dir) => {};
+    const scrollAmount =
+      dir === "left"
+        ? container.scrollLeft - (container.offsetWidth + 4)
+        : container.scrollLeft + (container.offsetWidth + 4);
+
+    container.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   const showImage = (imgName) => {
     const imagePath = imageUrl
@@ -32,10 +42,16 @@ const Carousel = ({ data, loading }) => {
   };
 
   const showData = () => (
-    <div className="carouselItems">
+    <div className="carouselItems" ref={carouselContainer}>
       {data?.map((item) => {
         return (
-          <div key={item.id} className="carouselItem">
+          <div
+            key={item.id}
+            className="carouselItem"
+            onClick={() => {
+              navigate(`${item.media_type}/${item.id}`);
+            }}
+          >
             <div className="posterBlock">
               {showImage(item.poster_path)}
               <CircleRating rating={item.vote_average} />
@@ -76,7 +92,7 @@ const Carousel = ({ data, loading }) => {
         <BsFillArrowRightCircleFill
           className="carouselRighttNav arrow"
           onClick={() => {
-            navigation("left");
+            navigation("right");
           }}
         />
         {!loading ? (
