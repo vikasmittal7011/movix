@@ -8,7 +8,7 @@ const Genres = ({ gen }) => {
 
   return (
     <div className="genres">
-      {gen.map((g) => {
+      {gen?.map((g) => {
         if (!genres[g]?.name) return null;
         return (
           <div key={g} className="genre">

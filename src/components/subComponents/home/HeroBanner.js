@@ -45,7 +45,7 @@ const HeroBanner = () => {
   return (
     <div className="hero-banner">
       <div className="back-drop-img">
-        {getBackgroundImage && <LoadImage src={getBackgroundImage} height={"450px"} />}
+        {getBackgroundImage && <LoadImage src={getBackgroundImage} height={"450px"} width={"100%"}/>}
       </div>
       <div className="opacity-layer"></div>
       <div className="hero-banner-content">

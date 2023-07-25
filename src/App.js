@@ -5,6 +5,7 @@ import { useStateMethonds } from "./hooks/useStateMethods";
 import NavBar from "./components/pages/NavBar";
 import Footer from "./components/pages/Footer";
 import { loadData } from "./utils/api";
+import Details from "./components/pages/Details";
 const Home = lazy(() => import("./components/pages/Home"));
 
 const App = () => {
@@ -51,6 +52,7 @@ const App = () => {
         <Suspense fallback={<p>Loading...</p>}>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/:mediaType/:id" element={<Details />} />
           </Routes>
         </Suspense>
         <Footer />
