@@ -1,16 +1,16 @@
-.casouselSection {
+.carouselSection {
   position: relative;
   margin-bottom: 70px;
 }
 
-.casouselSection > .contentWrapper {
+.carouselSection > .contentWrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.casouselSection .casouselTitle {
+.carouselSection .carouselTitle {
   font-size: 25px;
   color: white;
   font-weight: normal;
