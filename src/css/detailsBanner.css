@@ -49,7 +49,7 @@
 
 .detailsBanner .content .left .posterImg {
   width: 100%;
-  height: 500px;
+  height: 580px;
   display: block;
   border-radius: 12px;
 }
@@ -236,7 +236,13 @@
   }
 
   .detailsBanner .content .left .posterImg {
-    max-width: 350px;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .detailsBanner .content .right {
+    margin-left: 0;
+    margin-bottom: 40px;
   }
 
   .detailsBanner .content .right .title {

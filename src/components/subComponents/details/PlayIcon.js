@@ -15,7 +15,7 @@ export const PlayIcon = () => {
       <polygon
         className="triangle"
         fill="none"
-        strokeWidth="7"D
+        strokeWidth="7"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
