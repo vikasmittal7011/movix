@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -10,8 +10,11 @@ import CircleRating from "../common/CircleRating";
 import LoadImage from "../common/LoadImage";
 import PosterFallback from "../../../images/no-poster.png";
 import { PlayIcon } from "./PlayIcon";
+import VideoPopUp from "../common/VideoPopUp";
 
 const DetailsBanner = ({ video, crew }) => {
+  const [show, setShow] = useState(false);
+  const [videoId, setVideoId] = useState(null);
   const { id, mediaType } = useParams();
   const { data, loading } = useFetch(`/${mediaType}/${id}`);
   const {
@@ -68,7 +71,13 @@ const DetailsBanner = ({ video, crew }) => {
               <div className="rating">
                 <CircleRating rating={data?.vote_average?.toFixed(1)} />
               </div>
-              <div className="playbtn">
+              <div
+                className="playbtn"
+                onClick={() => {
+                  setShow(true);
+                  setVideoId(video?.key);
+                }}
+              >
                 <PlayIcon />
                 <span className="text">Watch Trailer</span>
               </div>
@@ -129,6 +138,12 @@ const DetailsBanner = ({ video, crew }) => {
           </div>
         </div>
       </div>
+      <VideoPopUp
+        show={show}
+        setShow={setShow}
+        videoId={videoId}
+        setVideoId={setVideoId}
+      />
     </div>
   );
 
