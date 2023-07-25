@@ -12,6 +12,7 @@ import PosterFallback from "../../../images/no-poster.png";
 
 import "../../../css/carousel.css";
 import CircleRating from "./CircleRating";
+import Genres from "./Genres";
 
 const Carousel = ({ data, loading }) => {
   const carouselContainer = useRef();
@@ -38,6 +39,7 @@ const Carousel = ({ data, loading }) => {
             <div className="posterBlock">
               {showImage(item.poster_path)}
               <CircleRating rating={item.vote_average} />
+              <Genres gen={item?.genre_ids?.slice(0, 2)} />
             </div>
             <div className="textBlock">
               <span className="title">{item.title || item.name}</span>

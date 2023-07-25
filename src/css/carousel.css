@@ -83,7 +83,7 @@
 }
 
 .carouselItems .carouselItem {
-  width: 125px;
+  width: 150px;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -146,8 +146,9 @@
 }
 
 .carouselItems .carouselItem .posterBlock .genres {
-  display: none;
   position: relative;
+  flex-flow: wrap;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 786px) {
@@ -186,9 +187,7 @@
   }
 
   .carouselItems .carouselItem .posterBlock .genres {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: flex-end;
+    display: none;
   }
 
   .carouselItems .carouselItem .textBlock .title {
