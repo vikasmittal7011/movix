@@ -5,8 +5,7 @@ import useFetch from "../../../hooks/useFetch";
 
 const Recommendation = ({ mediaType, id }) => {
   const { data, loading } = useFetch(`/${mediaType}/${id}/recommendations`);
-
-  console.log(data);
+  
   return (
     <>
       {data?.results.length > 0 && (

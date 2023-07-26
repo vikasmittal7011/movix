@@ -111,8 +111,8 @@
   }
 
   .castSection .listItems .listItem .profileImg {
-    width: 175px;
-    height: 175px;
+    width: 120px;
+    height: 120px;
     margin-bottom: 25px;
   }
 
@@ -135,5 +135,9 @@
     width: 175px;
     height: 175px;
     margin-bottom: 25px;
+  }
+
+  .castSection .arrow {
+   display: none;
   }
 }

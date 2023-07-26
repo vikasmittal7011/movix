@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import "../../../css/videoSection.css";
-// kg b: 12.45 2nd e: 1.30
 
 import { PlayIcon } from "./PlayIcon";
 import VideoPopup from "../common/VideoPopUp";
 import LoadIamge from "../common/LoadImage";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 
 const VideoSection = ({ data, loading }) => {
+  const videoContainer = useRef();
   const [show, setShow] = useState(false);
   const [videoId, setVideoId] = useState(null);
+
+  const navigation = (dir) => {
+    const container = videoContainer.current;
+
+    const scrollAmount =
+      dir === "left"
+        ? container.scrollLeft - container.offsetWidth
+        : container.scrollLeft + container.offsetWidth;
+
+    container.scrollTo({
+      left: scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   const loadingSkeleton = () => (
     <div className="skItem">
@@ -20,7 +38,7 @@ const VideoSection = ({ data, loading }) => {
   );
 
   const showVideos = () => (
-    <div className="videos">
+    <div className="videos" ref={videoContainer}>
       {data?.map((v, i) => (
         <div
           key={i}
@@ -44,6 +62,18 @@ const VideoSection = ({ data, loading }) => {
 
   return (
     <div className="videosSection container">
+      <BsFillArrowLeftCircleFill
+        className="carouselLeftNav arrow"
+        onClick={() => {
+          navigation("left");
+        }}
+      />
+      <BsFillArrowRightCircleFill
+        className="carouselRighttNav arrow"
+        onClick={() => {
+          navigation("right");
+        }}
+      />
       <div className="sectionHeading">Official Videos</div>
       {!loading ? (
         showVideos()
