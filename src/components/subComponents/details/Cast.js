@@ -12,7 +12,6 @@ const Cast = ({ data, loading }) => {
 
   const displayImage = (path) => {
     const location = path ? imageUrl + profileImageSize?.[3] + path : avatar;
-    console.log(location);
     return <LoadImage src={location} />;
   };
 

@@ -14,7 +14,7 @@ import "../../../css/carousel.css";
 import CircleRating from "./CircleRating";
 import Genres from "./Genres";
 
-const Carousel = ({ data, loading, endPoint }) => {
+const Carousel = ({ data, loading, endPoint, title }) => {
   const carouselContainer = useRef();
   const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
@@ -35,8 +35,8 @@ const Carousel = ({ data, loading, endPoint }) => {
   };
 
   const showImage = (imgName) => {
-    const imagePath = imageUrl
-      ? imageUrl + posterImageSize[6] + imgName
+    const imagePath = imgName
+      ? imageUrl + posterImageSize?.[6] + imgName
       : PosterFallback;
     return <LoadImage src={imagePath} />;
   };
@@ -49,7 +49,7 @@ const Carousel = ({ data, loading, endPoint }) => {
             key={item.id}
             className="carouselItem"
             onClick={() => {
-              navigate(`${item.media_type || endPoint}/${item.id}`);
+              navigate(`/${item.media_type || endPoint}/${item.id}`);
             }}
           >
             <div className="posterBlock">
@@ -83,6 +83,7 @@ const Carousel = ({ data, loading, endPoint }) => {
   return (
     <div className="carousel">
       <div className="container">
+        {title && <div className="carouselTitle">{title}</div>}
         <BsFillArrowLeftCircleFill
           className="carouselLeftNav arrow"
           onClick={() => {
