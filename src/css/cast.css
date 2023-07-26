@@ -3,6 +3,29 @@
   margin-bottom: 50px;
 }
 
+.castSection .arrow {
+  font-size: 30px;
+  color: black;
+  position: absolute;
+  top: 44%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.castSection .arrow:hover {
+  opacity: 0.8;
+}
+
+.castSection .carouselLeftNav {
+  left: -50px;
+}
+
+.castSection .carouselRighttNav {
+  right: -55px;
+}
+
 .castSection .sectionHeading {
   font-size: 24px;
   color: white;
@@ -11,7 +34,7 @@
 
 .castSection .listItems {
   display: flex;
-  gap: 20px;
+  gap: 17px;
   overflow-y: hidden;
   margin-right: -20px;
   margin-left: -20px;
