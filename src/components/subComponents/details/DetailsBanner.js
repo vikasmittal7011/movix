@@ -149,9 +149,9 @@ const DetailsBanner = ({ video, crew }) => {
 
   const showSkeleton = () => (
     <div className="detailsBannerSkeleton">
-      <div className="container">
-        <div className="left skeleton"></div>
-        <div className="right">
+      <div className="container d-md-flex">
+        <div className="left skeleton px-5"></div>
+        <div className="right px-5">
           <div className="row skeleton"></div>
           <div className="row skeleton"></div>
           <div className="row skeleton"></div>
