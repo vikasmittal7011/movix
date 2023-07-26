@@ -54,7 +54,7 @@ const Carousel = ({ data, loading, endPoint }) => {
           >
             <div className="posterBlock">
               {showImage(item.poster_path)}
-              <CircleRating rating={item.vote_average} />
+              <CircleRating rating={item.vote_average.toFixed(1)} />
               <Genres gen={item?.genre_ids?.slice(0, 2)} />
             </div>
             <div className="textBlock">
