@@ -38,7 +38,7 @@
 
 .carousel .loadingSkeleton {
   display: flex;
-  gap: 10px;
+  gap: 40px;
   overflow-y: hidden;
   margin-right: -20px;
   margin-left: -20px;
@@ -46,7 +46,7 @@
 }
 
 .carousel .loadingSkeleton .skeletonItem {
-  width: 125px;
+  width: 153px;
   flex-shrink: 0;
 }
 
