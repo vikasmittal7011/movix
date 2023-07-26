@@ -5,10 +5,11 @@ import DetailsBanner from "../subComponents/details/DetailsBanner";
 import useFetch from "../../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import Cast from "../subComponents/details/Cast";
+import VideoSection from "../subComponents/details/VideoSection";
 
 const Details = () => {
   const { id, mediaType } = useParams();
-  const { data } = useFetch(`/${mediaType}/${id}/videos`);
+  const { data, loading } = useFetch(`/${mediaType}/${id}/videos`);
   const { data: creditData, loading: creditLoading } = useFetch(
     `/${mediaType}/${id}/credits`
   );
@@ -17,6 +18,7 @@ const Details = () => {
     <div>
       <DetailsBanner video={data?.results?.[0]} crew={creditData?.crew} />
       <Cast data={creditData?.cast} loading={creditLoading} />
+      <VideoSection data={data?.results} loading={loading} />
     </div>
   );
 };
