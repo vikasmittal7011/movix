@@ -2,13 +2,14 @@ import React, { Suspense, lazy, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { useStateMethonds } from "./hooks/useStateMethods";
-import NavBar from "./components/pages/NavBar";
-import Footer from "./components/pages/Footer";
 import { loadData } from "./utils/api";
-import Details from "./components/pages/Details";
-import SearchResult from "./components/pages/SearchResult";
-import Explore from "./components/pages/Explore";
+const NavBar = lazy(() => import("./components/pages/NavBar"));
+const Footer = lazy(() => import("./components/pages/Footer"));
+const Details = lazy(() => import("./components/pages/Details"));
+const SearchResult = lazy(() => import("./components/pages/SearchResult"));
+const Explore = lazy(() => import("./components/pages/Explore"));
 const Home = lazy(() => import("./components/pages/Home"));
+const PageNotFound = lazy(() => import("./components/pages/PageNotFound"));
 
 const App = () => {
   const { getApiConfiguration, getGenres } = useStateMethonds();
@@ -57,6 +58,7 @@ const App = () => {
             <Route exact path="/:mediaType/:id" element={<Details />} />
             <Route exact path="/search/:query" element={<SearchResult />} />
             <Route exact path="/explore/:mediaType" element={<Explore />} />
+            <Route exact path="*" element={<PageNotFound />} />
           </Routes>
         </Suspense>
         <Footer />
