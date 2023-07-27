@@ -1,0 +1,123 @@
+.itemCard {
+  width: 20%;
+  margin-left: 28px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.itemCard .posterBlock {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1.5;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all ease 0.5s;
+}
+
+.itemCard .posterBlock .lazy-load-image-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.itemCard .posterBlock .lazy-load-image-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.itemCard .posterBlock .circleRating {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 30px;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.itemCard .posterBlock .genres {
+  display: none;
+  position: relative;
+}
+
+.itemCard .textBlock {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemCard .textBlock .title {
+  font-size: 16px;
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+
+.itemCard .textBlock .date {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.itemCard:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1024px) {
+  .itemCard {
+    width: 25%;
+    margin-left: 28px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .itemCard {
+    width: 22%;
+    margin-left: 3px;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .itemCard {
+    width: 28%;
+    margin-left: 10px;
+  }
+
+  .itemCard .posterBlock .circleRating {
+    width: 50px;
+    height: 50px;
+  }
+
+  .itemCard .posterBlock .genres {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-end;
+  }
+
+  .itemCard .textBlock .title {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .itemCard {
+    width: 20%;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .itemCard{
+    width: 20%;
+    margin-left: 3px;
+  }
+}

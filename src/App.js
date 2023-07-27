@@ -6,6 +6,7 @@ import NavBar from "./components/pages/NavBar";
 import Footer from "./components/pages/Footer";
 import { loadData } from "./utils/api";
 import Details from "./components/pages/Details";
+import SearchResult from "./components/pages/SearchResult";
 const Home = lazy(() => import("./components/pages/Home"));
 
 const App = () => {
@@ -53,6 +54,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/:mediaType/:id" element={<Details />} />
+            <Route exact path="/search/:query" element={<SearchResult />} />
           </Routes>
         </Suspense>
         <Footer />
