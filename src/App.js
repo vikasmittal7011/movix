@@ -7,6 +7,7 @@ import Footer from "./components/pages/Footer";
 import { loadData } from "./utils/api";
 import Details from "./components/pages/Details";
 import SearchResult from "./components/pages/SearchResult";
+import Explore from "./components/pages/Explore";
 const Home = lazy(() => import("./components/pages/Home"));
 
 const App = () => {
@@ -55,6 +56,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/:mediaType/:id" element={<Details />} />
             <Route exact path="/search/:query" element={<SearchResult />} />
+            <Route exact path="/explore/:mediaType" element={<Explore />} />
           </Routes>
         </Suspense>
         <Footer />
