@@ -20,8 +20,8 @@ const Cast = ({ data, loading }) => {
 
     const scrollAmount =
       dir === "left"
-        ? container.scrollLeft - (container.offsetWidth - 15 )
-        : container.scrollLeft + (container.offsetWidth - 15 );
+        ? container.scrollLeft - (container.offsetWidth - 15)
+        : container.scrollLeft + (container.offsetWidth - 15);
 
     container.scrollTo({
       left: scrollAmount,
@@ -57,19 +57,23 @@ const Cast = ({ data, loading }) => {
   };
   return (
     <div className="castSection container">
-      <BsFillArrowLeftCircleFill
-        className="carouselLeftNav arrow"
-        onClick={() => {
-          navigation("left");
-        }}
-      />
-      <BsFillArrowRightCircleFill
-        className="carouselRighttNav arrow"
-        onClick={() => {
-          navigation("right");
-        }}
-      />
-      <div className="sectionHeading">Top Cast</div>
+      {data?.length > 0 && (
+        <>
+          <BsFillArrowLeftCircleFill
+            className="carouselLeftNav arrow"
+            onClick={() => {
+              navigation("left");
+            }}
+          />
+          <BsFillArrowRightCircleFill
+            className="carouselRighttNav arrow"
+            onClick={() => {
+              navigation("right");
+            }}
+          />
+          <div className="sectionHeading">Top Cast</div>
+        </>
+      )}
       {!loading ? (
         showData()
       ) : (

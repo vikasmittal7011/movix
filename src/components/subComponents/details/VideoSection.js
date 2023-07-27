@@ -62,19 +62,23 @@ const VideoSection = ({ data, loading }) => {
 
   return (
     <div className="videosSection container">
-      <BsFillArrowLeftCircleFill
-        className="carouselLeftNav arrow"
-        onClick={() => {
-          navigation("left");
-        }}
-      />
-      <BsFillArrowRightCircleFill
-        className="carouselRighttNav arrow"
-        onClick={() => {
-          navigation("right");
-        }}
-      />
-      <div className="sectionHeading">Official Videos</div>
+      {data?.length > 0 && (
+        <>
+          <BsFillArrowLeftCircleFill
+            className="carouselLeftNav arrow"
+            onClick={() => {
+              navigation("left");
+            }}
+          />
+          <BsFillArrowRightCircleFill
+            className="carouselRighttNav arrow"
+            onClick={() => {
+              navigation("right");
+            }}
+          />
+          <div className="sectionHeading">Official Videos</div>
+        </>
+      )}
       {!loading ? (
         showVideos()
       ) : (
